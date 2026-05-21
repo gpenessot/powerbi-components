@@ -1,0 +1,56 @@
+{% comment %}
+Composant Jekyll réutilisable pour intégrer un dashboard Power BI public.
+
+Paramètres requis :
+  title        — Titre du dashboard
+  description  — Description courte du projet
+  embed_url    — URL d'embed Power BI (depuis "Publier sur le web")
+  data_source  — Nom de la source de données
+  source_url   — URL vers la source de données
+
+Paramètre optionnel :
+  height       — Hauteur de l'iframe (défaut : 600px)
+
+Usage :
+{% include powerbi-dashboard.html
+  title="Analyse du Marché Immobilier Parisien"
+  description="Exploration des transactions par arrondissement, 2020–2024."
+  embed_url="https://app.powerbi.com/view?r=VOTRE_CODE_EMBED"
+  data_source="DVF — data.gouv.fr"
+  source_url="https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres/"
+%}
+{% endcomment %}
+
+<div class="powerbi-container">
+
+  <div class="powerbi-header">
+    <h3 class="powerbi-title">{{ include.title }}</h3>
+    {% if include.description %}
+    <p class="powerbi-description">{{ include.description }}</p>
+    {% endif %}
+  </div>
+
+  <div class="powerbi-embed-wrapper">
+    <iframe
+      title="{{ include.title }}"
+      src="{{ include.embed_url }}"
+      frameborder="0"
+      allowfullscreen="true"
+      loading="lazy"
+      style="width: 100%; height: {{ include.height | default: '600px' }}; border: none;"
+    ></iframe>
+  </div>
+
+  <div class="powerbi-footer">
+    <div class="powerbi-security-notice">
+      <span class="security-icon">🔒</span>
+      <strong>Données publiques uniquement :</strong>
+      Ce dashboard utilise exclusivement des données ouvertes provenant de
+      <a href="{{ include.source_url }}" target="_blank" rel="noopener noreferrer">
+        {{ include.data_source }}
+      </a>.
+      Aucune donnée confidentielle ou d'entreprise n'est exposée.
+    </div>
+  </div>
+
+</div>
