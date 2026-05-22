@@ -1,0 +1,40 @@
+---
+title: "Competitive Marketing Analysis"
+description: "Analyse comparative des parts de marché et performances commerciales."
+---
+
+Dashboard interactif basé sur le rapport exemple officiel de Microsoft Power BI.
+
+```{=html}
+<div style="border:1px solid #dee2e6;border-radius:8px;overflow:hidden;margin:1.5rem 0;box-shadow:0 1px 3px rgba(0,0,0,.08)">
+  <iframe
+    title="Competitive Marketing Analysis"
+    src="https://app.powerbi.com/view?r=eyJrIjoiYmY0YzI5MTItODQ2Yy00YmY3LTk3NTMtYmQ4MDE5MDMyYThjIiwidCI6IjAxZDJkNTg3LTM1YTctNGFkYy1iNGM3LTFmZTgxYjYzZDY1ZSJ9"
+    style="display:block;width:100%;height:540px;border:none"
+    frameborder="0"
+    allowfullscreen="true"
+    loading="lazy">
+  </iframe>
+  <div style="padding:.75rem 1.5rem;background:#f8f9fa;border-top:1px solid #dee2e6;font-size:.85rem;color:#6c757d">
+    🔒 <strong>Données publiques uniquement :</strong>
+    Ce dashboard utilise des données ouvertes de
+    <a href="https://github.com/microsoft/powerbi-desktop-samples" target="_blank" rel="noopener noreferrer">
+      Microsoft Power BI Desktop Samples
+    </a>.
+    Aucune donnée confidentielle ou d'entreprise n'est exposée.
+  </div>
+</div>
+```
+
+## Insights Clés
+
+- Le canal **Online** représente 45,84 % des ventes ($15K) avec un ROI de 12 %.
+- **Social Media** génère $9 262 (28,92 %) mais affiche un ROI de 0 % — canal à optimiser.
+- **Outlet** ne pèse que 4,18 % des ventes mais dégage le meilleur ROI : 18 %.
+- Le produit **Maximus UM-70** est le best-seller Online avec $2 359 de ventes.
+- Les ventes Online atteignent leur pic en **octobre–novembre**, suggérant un effet saisonnier.
+
+## Source
+
+Rapport exemple fourni par Microsoft :
+[Competitive Marketing Analysis.pbix](https://github.com/microsoft/powerbi-desktop-samples/blob/main/new-power-bi-service-samples/Competitive%20Marketing%20Analysis.pbix)

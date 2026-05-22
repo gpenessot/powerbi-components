@@ -1,47 +1,61 @@
 # powerbi-components
 
-Composants Jekyll réutilisables pour intégrer des dashboards **Power BI** dans un portfolio statique.
+Ressources pour intégrer des dashboards **Power BI** dans un portfolio GitHub Pages — compatibles avec les deux approches du Module 2 : portfolio HTML monofichier et portfolio Quarto.
 
 ## Contenu
 
 ```
 powerbi-components/
-├── _includes/
-│   └── powerbi-dashboard.html              # composant principal
-├── _sass/
-│   └── _powerbi.scss                       # styles optionnels
 ├── examples/
-│   └── competitive-marketing-analysis.md   # exemple d'utilisation dans une page projet
-└── pbix/
-    └── Competitive Marketing Analysis.pbix # rapport de démonstration (Microsoft)
+│   ├── html/
+│   │   └── competitive-marketing-analysis.html   # page projet pour portfolio HTML
+│   └── quarto/
+│       └── competitive-marketing-analysis.qmd    # page projet pour portfolio Quarto
+├── pbix/
+│   └── Competitive Marketing Analysis.pbix       # rapport de démonstration (Microsoft)
+└── index.html                                    # démo standalone GitHub Pages
 ```
 
-## Installation dans votre portfolio Jekyll
+## Approche 1 — Portfolio HTML monofichier
 
-**1. Copier le composant**
+Copiez `examples/html/competitive-marketing-analysis.html` à la racine de votre repo portfolio, puis adaptez :
 
-```bash
-cp _includes/powerbi-dashboard.html <votre-portfolio>/_includes/
-cp _sass/_powerbi.scss <votre-portfolio>/_sass/
+1. Remplacez `VOTRE_URL_EMBED_ICI` par l'URL fournie par Power BI
+2. Recopiez votre `<nav>` et votre `<footer>` depuis `index.html`
+3. Ajoutez une carte projet dans `index.html` :
+
+```html
+<div class="project-card">
+  <h3>Competitive Marketing Analysis</h3>
+  <p>Répartition des ventes $32K par canal — ROI comparatif et tendances mensuelles.</p>
+  <div>
+    <span class="tag">Power BI</span>
+    <span class="tag">Data Visualisation</span>
+  </div>
+  <div class="project-links">
+    <a href="competitive-marketing-analysis.html">Voir le dashboard →</a>
+  </div>
+</div>
 ```
 
-**2. Importer le SCSS** dans votre fichier principal (ex. `assets/css/main.scss`) :
+4. Commitez et poussez — GitHub Pages met à jour en 2-3 minutes.
 
-```scss
-@import "powerbi";
+## Approche 2 — Portfolio Quarto
+
+Copiez `examples/quarto/competitive-marketing-analysis.qmd` à la racine de votre repo portfolio, puis :
+
+1. Remplacez `VOTRE_URL_EMBED_ICI` par l'URL fournie par Power BI
+2. Ajoutez la page dans `_quarto.yml` :
+
+```yaml
+website:
+  navbar:
+    left:
+      - href: competitive-marketing-analysis.qmd
+        text: Dashboard BI
 ```
 
-**3. Utiliser dans n'importe quelle page**
-
-```markdown
-{% include powerbi-dashboard.html
-  title="Competitive Marketing Analysis"
-  description="Analyse des parts de marché et tendances concurrentielles."
-  embed_url="https://app.powerbi.com/view?r=eyJrIjoiYmY0YzI5MTItODQ2Yc00YmY3LTk3NTMtYmQ4MDE5MDMyYThjIiwidCI6IjAxZDJkNTg3LTM1YTctNGFkYy1iNGM3LTFmZTgxYjYzZDY1ZSJ9"
-  data_source="Microsoft Power BI Desktop Samples"
-  source_url="https://github.com/microsoft/powerbi-desktop-samples"
-%}
-```
+3. Commitez et poussez — GitHub Actions déclenche le build automatiquement.
 
 ## Obtenir l'URL d'embed Power BI
 
@@ -51,15 +65,4 @@ cp _sass/_powerbi.scss <votre-portfolio>/_sass/
 4. Copier l'URL depuis le bloc `<iframe>` généré
 
 > **Important :** ne publiez que des dashboards basés sur des données 100% publiques.
-> La fonctionnalité "Publier sur le web" rend vos données accessibles à tous.
-
-## Paramètres du composant
-
-| Paramètre | Requis | Description |
-|-----------|--------|-------------|
-| `title` | ✅ | Titre affiché au-dessus du dashboard |
-| `description` | — | Description courte du projet |
-| `embed_url` | ✅ | URL d'embed fournie par Power BI |
-| `data_source` | ✅ | Nom de la source de données |
-| `source_url` | ✅ | URL vers la source ouverte |
-| `height` | — | Hauteur de l'iframe (défaut : `600px`) |
+> La fonctionnalité "Publier sur le web" rend l'intégralité de vos données accessible à tous.

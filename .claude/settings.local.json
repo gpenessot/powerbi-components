@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\gaelp\\\\Documents\\\\Github\\\\powerbi-components\" -Recurse -Force | ForEach-Object { $_.FullName })",
+      "Bash(find /c/Users/gaelp/Documents/Github/scripts-prompteur-portfolio -type f | sort)",
+      "Read(//c/Users/gaelp/Documents/Github/scripts-prompteur-portfolio/**)",
+      "Bash(git rm *)"
+    ]
+  }
+}
