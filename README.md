@@ -7,11 +7,13 @@ Composants Jekyll réutilisables pour intégrer des dashboards **Power BI** dans
 ```
 powerbi-components/
 ├── _includes/
-│   └── powerbi-dashboard.html   # composant principal
+│   └── powerbi-dashboard.html              # composant principal
 ├── _sass/
-│   └── _powerbi.scss            # styles optionnels
-└── examples/
-    └── projet-immobilier.md     # exemple d'utilisation dans une page projet
+│   └── _powerbi.scss                       # styles optionnels
+├── examples/
+│   └── competitive-marketing-analysis.md   # exemple d'utilisation dans une page projet
+└── pbix/
+    └── Competitive Marketing Analysis.pbix # rapport de démonstration (Microsoft)
 ```
 
 ## Installation dans votre portfolio Jekyll
@@ -33,11 +35,11 @@ cp _sass/_powerbi.scss <votre-portfolio>/_sass/
 
 ```markdown
 {% include powerbi-dashboard.html
-  title="Titre de votre dashboard"
-  description="Description du projet."
-  embed_url="https://app.powerbi.com/view?r=VOTRE_CODE_EMBED"
-  data_source="Nom de la source"
-  source_url="https://lien-vers-la-source.fr"
+  title="Competitive Marketing Analysis"
+  description="Analyse des parts de marché et tendances concurrentielles."
+  embed_url="https://app.powerbi.com/view?r=eyJrIjoiYmY0YzI5MTItODQ2Yc00YmY3LTk3NTMtYmQ4MDE5MDMyYThjIiwidCI6IjAxZDJkNTg3LTM1YTctNGFkYy1iNGM3LTFmZTgxYjYzZDY1ZSJ9"
+  data_source="Microsoft Power BI Desktop Samples"
+  source_url="https://github.com/microsoft/powerbi-desktop-samples"
 %}
 ```
 
